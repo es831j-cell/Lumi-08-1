@@ -1,0 +1,21 @@
+LUMI APK - PERSONAL GITHUB.COM BUILD
+
+This ZIP is intentionally structured so its CONTENTS go directly into the root of a personal github.com repository.
+
+Expected repository structure:
+.github/workflows/build-apk.yml
+app/
+build.gradle
+settings.gradle
+README.md
+
+The GitHub Actions workflow automatically:
+- checks out the project
+- installs Java 17
+- configures the Android SDK
+- installs Android API 35 build tools
+- configures Gradle 8.9
+- compiles a debug APK
+- uploads the finished APK as an artifact named Lumi-v0.7-Private-APK
+
+The APK inside the artifact will be Lumi-v0.7-Private.apk.

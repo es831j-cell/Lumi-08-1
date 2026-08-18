@@ -1,0 +1,39 @@
+plugins { id 'com.android.application' }
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = file('keystore.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace 'com.distressedelk.lumi'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.distressedelk.lumi'
+        minSdk 28
+        targetSdk 35
+        versionCode 8
+        versionName '0.8.0-appearance'
+    }
+
+    signingConfigs {
+        lumiPrototype {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.lumiPrototype
+        }
+        release {
+            signingConfig signingConfigs.lumiPrototype
+            minifyEnabled false
+        }
+    }
+}

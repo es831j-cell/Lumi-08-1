@@ -1,0 +1,8 @@
+LUMI v0.8 APPEARANCE UPDATE
+
+Install over v0.7. Do not uninstall Lumi first.
+Package: com.distressedelk.lumi
+versionCode: 8
+versionName: 0.8.0-appearance
+
+This update preserves prior Lumi SharedPreferences and private-mode data while adding persistent appearance/wardrobe preferences.
